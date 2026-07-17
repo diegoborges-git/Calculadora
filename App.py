@@ -1,7 +1,12 @@
 import streamlit as st
 import math
 
-st.set_page_config(page_title="Calculadora Hidráulica", layout="centered")
+
+st.set_page_config(
+    page_title="Calculadora Hidráulica",
+    page_icon="static/favicon.png", # Aponta para o arquivo que você subiu
+    layout="centered"
+)
 
 st.title("🧰 Assistência Técnica")
 
