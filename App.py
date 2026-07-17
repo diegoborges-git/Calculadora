@@ -3,10 +3,10 @@ import math
 
 st.set_page_config(page_title="Calculadora Hidráulica", layout="centered")
 
-st.title("🧰 Assistência Técnica Hidráulica")
+st.title("🧰 Assistência Técnica")
 
 # Inputs
-pressao = st.number_input("Pressão de Trabalho (bar)", min_value=0.0, format="%.2f")
+pressao = st.number_input("Pressão de Trabalho (bar)", min_value=0.0, format="%.1f")
 diametro = st.number_input("Diâmetro da Camisa (mm)", min_value=0.0, format="%.1f")
 
 if st.button("Calcular Força de Avanço"):
