@@ -2,6 +2,8 @@ import streamlit as st
 import math
 
 st.title("🧰 Assistência Técnica ")
+st.header("🧰 Assistência Técnica ")
+st.subheader("🧰 Assistência Técnica ")
 
 # Criamos botões de rádio para escolher a operação
 opcao = st.radio("O que você deseja calcular?", 
