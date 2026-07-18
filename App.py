@@ -2,7 +2,7 @@ import streamlit as st
 import math
 
 st.title("🧰 Assistência Técnica ")
-st.header("🧰 Assistênciaaaaaaaaaaaaaaaaaaaaaa Técnica ")
+st.header("🧰 Assistênciaaaaaaa Técnica ")
 st.subheader("🧰 Assistência Técnica ")
 
 # Criamos botões de rádio para escolher a operação
