@@ -1,26 +1,37 @@
 import streamlit as st
 import math
 
+st.title("🧰 Assistência Técnica ")
 
-st.set_page_config(
-    page_title="Calculadora Hidráulica",
-    page_icon="static/favicon.png", # Aponta para o arquivo que você subiu
-    layout="centered"
-)
+# Criamos botões de rádio para escolher a operação
+opcao = st.radio("O que você deseja calcular?", 
+                 ["Força de Avanço", "Força de Recuo", "Velocidade"])
 
-st.title("🧰 Assistência Técnica")
+# A lógica abaixo só aparece se a opção for selecionada
+if opcao == "Força de Avanço":
+    st.subheader("Cálculo de Força de Avanço")
+    pressao = st.number_input("Pressão (bar)", min_value=0.0)
+    diametro = st.number_input("Diâmetro da Camisa (mm)", min_value=0.0)
+    if st.button("Calcular"):
+        area = (math.pi * (diametro/10)**2) / 4
+        forca = area * pressao
+        st.write(f"Força de Avanço: {forca:,.2f} kgf")
 
-# Inputs
-pressao = st.number_input("Pressão de Trabalho (bar)", min_value=0.0, format="%.1f")
-diametro = st.number_input("Diâmetro da Camisa (mm)", min_value=0.0, format="%.1f")
+elif opcao == "Força de Recuo":
+    st.subheader("Cálculo de Força de Recuo")
+    pressao = st.number_input("Pressão (bar)", min_value=0.0)
+    diametro = st.number_input("Diâmetro da Camisa (mm)", min_value=0.0)
+    haste = st.number_input("Diâmetro da Haste (mm)", min_value=0.0)
+    if st.button("Calcular"):
+        area = (math.pi * ((diametro/10)**2 - (haste/10)**2)) / 4
+        forca = area * pressao
+        st.write(f"Força de Recuo: {forca:,.2f} kgf")
 
-if st.button("Calcular Força de Avanço"):
-    if diametro > 0:
-        # A = (pi * D^2) / 4
-        area_mm2 = (math.pi * (diametro**2)) / 4
-        # 1 bar = 10 N/cm^2 -> conversão direta para Kgf
-        forca_kgf = (area_mm2 * pressao) / 100 
-        
-        st.success(f"Força de Avanço: **{forca_kgf:,.2f} kgf**")
-    else:
-        st.error("Insira um diâmetro válido.")
+elif opcao == "Velocidade":
+    st.subheader("Cálculo de Velocidade")
+    vazao = st.number_input("Vazão (L/min)", min_value=0.0)
+    diametro = st.number_input("Diâmetro da Camisa (mm)", min_value=0.0)
+    if st.button("Calcular"):
+        area_cm2 = (math.pi * (diametro/10)**2) / 4
+        velocidade = (vazao * 1000) / (area_cm2 * 60)
+        st.write(f"Velocidade: {velocidade:.2f} m/s")
