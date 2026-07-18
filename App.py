@@ -1,12 +1,12 @@
 import streamlit as st
 import math
 
-st.title("🧰 Assistência Técnica ")
+#st.title("🧰 Assistência Técnica ")
 #st.header("🧰 Assistênciaaaaaaa Técnica ")
 #st.subheader("🧰 Assistência Técnica ")
 #st.markdown("### 🧰 Assistência Técnica") # O número de hashtags controla o tamanho
 # Ou, para ter controle total da fonte (ex: 24 pixels):
-st.markdown("<h2 style='text-align: left; font-size: 48px;'>🧰 Assistência Técnica</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; font-size: 40px;'>🧰 Assistência Técnica</h2>", unsafe_allow_html=True)
 
 # Criamos botões de rádio para escolher a operação
 opcao = st.radio("O que você deseja calcular?", 
